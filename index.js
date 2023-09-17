@@ -16,6 +16,9 @@ async function searchImages() {
   console.log(data);
   const results = data.results; // Corrected variable name
 
+  if(page===1){
+    searchResult.innerHTML="";
+  }
   results.map((result) => {
     const image = document.createElement("img");
     image.src = result.urls.small;
@@ -38,4 +41,7 @@ searchForm.addEventListener("submit", async (e) => {
 
 showMoreBtn.addEventListener("click",(e)=>{
     page++;
+    searchImages();
 })
+
+
